@@ -21,8 +21,11 @@ app.get("/", (req, res) => {
         'msg': 'hey'
     })
 })
+
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(cors());
 const port = process.env.PORT;
 app.listen(port, () => {
     console.log(`running on port ${port}`)
 })
-
