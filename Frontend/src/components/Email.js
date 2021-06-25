@@ -1,6 +1,6 @@
 import React from 'react';
 import SendIcon from '@material-ui/icons/Send';
-import Editor from './Editor';
+import Editor from "./Editor"
 
 
 function Email() {
@@ -9,15 +9,15 @@ function Email() {
     <h2 className="text-center">Mail</h2>
     <div class="input-group mb-3 mx-auto w-75">
         <span class="input-group-text" id="basic-addon1">To</span>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+        <input type="text" class="form-control" placeholder="to" aria-label="Username" aria-describedby="basic-addon1" />
     </div>
     <div class="input-group  mb-3 mx-auto w-75">
         <span class="input-group-text" id="basic-addon1">Cc</span>
-        <input type="text" class="form-control mx-" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+        <input type="text" class="form-control mx-" placeholder="cc" aria-label="Username" aria-describedby="basic-addon1" />
     </div>
     <div class="input-group mb-3 mx-auto w-75">
         <span class="input-group-text" id="basic-addon1">Subject</span>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+        <input type="text" class="form-control" placeholder="subject" aria-label="Username" aria-describedby="basic-addon1" />
     </div>
     <div class="mx-auto w-75">   
     <label for="exampleFormControlInput1" class="form-label">Scheduler</label>
@@ -35,7 +35,7 @@ function Email() {
     </div>
     <div class="mb-3 mx-auto w-75 ">
         <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-        <Editor rows="3"/>
+        <Editor />
     </div>
     <div class="text-center m-4 ">
         <button type="button" className="btn btn-info ">Send <SendIcon fontSize="small" /></button>
