@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from "react";
+import { API } from './backend';
 
 function App() {
   useEffect(() => {
-    fetch(process.env.BACKEND)
+    fetch(API)
       .then(res => res.json())
       .then(data => console.log(data))
   }, [])
