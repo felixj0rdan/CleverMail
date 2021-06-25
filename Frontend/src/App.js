@@ -1,26 +1,28 @@
 import React,{  useEffect } from "react"
 import './App.css';
-import Email from "./components/Email";
-import Sign from "./components/Signup";
-import Login from "./components/Login";
-
+import { API } from './backend';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import Home from "./components/Home";
-import History from "./components/History";
-import Drafts from "./components/Drafts";
-import Compose from "./components/Compose";
+import Login from "./components/Login"
+import Drafts from "./components/Drafts"
+import Compose from "./components/Compose"
+import History from "./components/History"
+import Home from "./components/Home"
+import Signup from "./components/Signup"
+import Email from "./components/Email"
+
 
 
 function App() {
+  
   useEffect(() => {
-    fetch(process.env.BACKEND)
-    .then(res => res.json())
-    .then(data => console.log(data))
+    fetch(API)
+      .then(res => res.json())
+      .then(data => console.log(data))
   }, [])
 
   return (
@@ -30,6 +32,9 @@ function App() {
       {/* <Login /> */}
       <Router>
         <Switch>
+        <Route path="/email">
+            <Email />
+          </Route>
         <Route path="/login">
             <Login />
           </Route>
@@ -46,7 +51,7 @@ function App() {
             <Home />
           </Route>
           <Route path="/">
-            <Sign />
+            <Signup />
           </Route>
         </Switch>
       </Router>
