@@ -16,9 +16,9 @@ function Editor() {
         <div >
             <CKEditor  editor={ClassicEditor} onChange={handleOnChange} />
         </div>
-        <div>
+        {/* <div>
             {parse(value)}
-        </div>
+        </div> */}
         </>
     )
 }

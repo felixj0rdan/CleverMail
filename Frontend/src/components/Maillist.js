@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Maillist() {
+function Maillist({mailItem}) {
     return (
         <div>
-            mail list
+            {mailItem.content}
         </div>
     )
 }

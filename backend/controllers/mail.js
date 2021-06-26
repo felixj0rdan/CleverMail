@@ -14,6 +14,7 @@ exports.sendMail = (req, res) => {
             to: mail.to,
             cc: mail.cc,
             scheduler: mail.scheduler,
+            subject: mail.subject,
             content: mail.content,
         });
     });
