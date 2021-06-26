@@ -27,14 +27,16 @@ function Inbox() {
         return(
             <div>
             <Navbar />
-               <h1>Inbox</h1>
-               {/* {JSON.stringify(mails)} */}
-               {/* {console.log(mails)} */}
+            <div >
+               
                {
                    mails.map(mail =>(
-                        <Maillist mailItem={mail} />
+                       <div>
+                           {mail.to == user.email ? (<Maillist mailItem={mail} name={mail.from} />): (console.log(" "))}
+                       </div>
                    ))
                }
+            </div>
                
             </div>
         )

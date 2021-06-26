@@ -33,6 +33,9 @@ function Navbar() {
             <Link className={history.location.pathname === "/outbox" ? "active":""} to="/outbox">Outbox</Link>
             {/* <a href="#about"></a> */}
             {
+              user ? (<Link>welcome {user.email}</Link>):(<Link>Please Login</Link>)
+            }
+            {
               user ? (
                 <Link className="signout"><div onClick={()=>{
                     signout(()=>{
@@ -44,13 +47,19 @@ function Navbar() {
               )
             }
           </div>
+          <ul>
+
+  <li><Link onClick={handleShow}>Compose &#10148;</Link></li>
+  <li><a href="#contact">Schedule Mail</a></li>
+
+</ul>
 
 <div>
-<Button className="bttn" variant="info" onClick={handleShow}>
+{/* <Button className="bttn" variant="info" onClick={handleShow}>
         Compose
-      </Button>
+      </Button> */}
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal backdrop="static" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Mail</Modal.Title>
         </Modal.Header>

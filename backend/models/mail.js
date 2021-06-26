@@ -28,7 +28,7 @@ const mailSchema = new mongoose.Schema({
     subject: {
         type: String,
         trim: true,
-    }
+    },
 
     content: {
         type: String,

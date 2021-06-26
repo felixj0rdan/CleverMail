@@ -64,37 +64,41 @@ function Login() {
         }
     }
 
-    return (
-        <div>
-
-            {/* <img className="logo" src={img} alt="logo" /> */}
-            
-            {/* <hr/> */}
-            <div className="signup">
-            <form className="form-control form-control-sm w-50 mx-auto"> 
-            <h3 className="text-center mt-3 mb-4 fs-2 fw-bold">Login</h3>
-                <div class="mb-3 mx-auto w-75">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" placeholder="example@gmail.com" id="exampleInputEmail1" value={email} onChange={handleChange("email")} aria-describedby="emailHelp" />
-                </div>
-                <div class="mb-3 mx-auto w-75">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" placeholder="" class="form-control" value={password} onChange={handleChange("password")} id="exampleInputPassword1" />
-                </div>
+    if(!user){
+        return (
+            <div>
+    
+                {/* <img className="logo" src={img} alt="logo" /> */}
                 
-                
-                <button type="submit" onClick={onSubmit} class="btn button">Submit</button>
-                <div className="text-center" style={{display:"flex",margin:"20px"}}>
-                <p style={{marginRight:"5px"}}>If not signed up</p><Link to="/signup">Signup</Link>
+                {/* <hr/> */}
+                <div className="signup">
+                <form className="form-control form-control-sm w-50 mx-auto"> 
+                <h3 className="text-center mt-3 mb-4 fs-2 fw-bold">Login</h3>
+                    <div class="mb-3 mx-auto w-75">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" placeholder="example@gmail.com" id="exampleInputEmail1" value={email} onChange={handleChange("email")} aria-describedby="emailHelp" />
+                    </div>
+                    <div class="mb-3 mx-auto w-75">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" placeholder="" class="form-control" value={password} onChange={handleChange("password")} id="exampleInputPassword1" />
+                    </div>
+                    
+                    
+                    <button type="submit" onClick={onSubmit} class="btn button">Submit</button>
+                    <div className="text-center" style={{display:"flex",margin:"20px"}}>
+                    <p style={{marginRight:"5px"}}>If not signed up</p><Link to="/signup">Signup</Link>
+                    </div>
+                    {
+                        performRedirect()
+                    }
+                </form>
                 </div>
-                {
-                    performRedirect()
-                }
-            </form>
+    
             </div>
-
-        </div>
-    )
+        )
+    }else{
+        return <Redirect to="/inbox" />
+    }
 }
 
 export default Login
