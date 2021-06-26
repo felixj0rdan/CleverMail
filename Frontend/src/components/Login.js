@@ -58,7 +58,7 @@ function Login() {
 
     const performRedirect = () => {
         if(isAuthenticated && didRedirect){
-            return <Redirect to="/home" />
+            return <Redirect to="/inbox" />
         }
     }
 
@@ -80,6 +80,9 @@ function Login() {
                 
                 
                 <button type="submit" onClick={onSubmit} class="btn button">Submit</button>
+                <div className="text-center" style={{display:"flex",margin:"20px"}}>
+                <p style={{marginRight:"5px"}}>If not signed up</p><Link to="/signup">Signup</Link>
+                </div>
                 {
                     performRedirect()
                 }

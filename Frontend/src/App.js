@@ -13,7 +13,7 @@ import Login from "./components/Login"
 import Drafts from "./components/Drafts"
 import Compose from "./components/Compose"
 import History from "./components/History"
-import Home from "./components/Home"
+import Inbox from "./components/Inbox";
 import Signup from "./components/Signup"
 import Email from "./components/Email"
 
@@ -45,18 +45,20 @@ function App() {
         <Route path="/drafts">
             <Drafts />
           </Route>
-        <Route path="/compose">
-            <Compose />
+          
+        <Route path="/signup">
+            <Signup />
           </Route>
         <Route path="/history">
             <History />
           </Route>
-        <Route path="/home">
-            <Home />
+        <Route path="/inbox">
+            <Inbox />
           </Route>
           <Route path="/">
-            <Signup />
+            <Login />
           </Route>
+          
         </Switch>
       </Router>
 
