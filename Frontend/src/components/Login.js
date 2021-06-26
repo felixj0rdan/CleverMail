@@ -1,8 +1,67 @@
-import React from 'react'
+import React,{useState} from 'react'
 import "./Login.css"
-import img from "./Capture.PNG"
+import img from "./Capture.PNG";
+import { signin,authenticate,isAuthenticated } from "../helper/index";
+import { Redirect ,Link} from 'react-router-dom';
+
 
 function Login() {
+    const [values,setValues] = useState({
+        email:"",
+        password:"",
+        error:"",
+        loading:false,
+        didRedirect:false
+        
+    });
+
+    const {email,password,error,loading,didRedirect} = values;
+
+    const {user} = isAuthenticated();
+
+
+    const handleChange = name => event =>{
+        setValues({
+            ...values,error:false,[name]:event.target.value
+        })
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        setValues({
+            ...values,error:false,loading: true
+        });
+        signin({
+            email,
+            password
+        })
+        .then(data => {
+            if(data.error){
+                setValues({
+                    ...values,error: data.error,loading:false
+                })
+            }else{
+                authenticate(data,()=>{
+                    setValues({
+                        ...values,
+                        didRedirect: true
+                    })
+
+                })//when we have a next we can use a callback function here;
+               
+            }
+        })
+        .catch((err)=> console.log("error in signin"))
+
+        //return Redirect("/home");
+    }
+
+    const performRedirect = () => {
+        if(isAuthenticated && didRedirect){
+            return <Redirect to="/home" />
+        }
+    }
+
     return (
         <div>
             <img className="logo" src={img} alt="logo" />
@@ -12,15 +71,18 @@ function Login() {
             <h3 className="text-center mt-3 mb-4 fs-2 fw-bold">Login</h3>
                 <div class="mb-3 mx-auto w-75">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" placeholder="example@gmail.com" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <input type="email" class="form-control" placeholder="example@gmail.com" id="exampleInputEmail1" value={email} onChange={handleChange("email")} aria-describedby="emailHelp" />
                 </div>
                 <div class="mb-3 mx-auto w-75">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" placeholder="" class="form-control" id="exampleInputPassword1" />
+                    <input type="password" placeholder="" class="form-control" value={password} onChange={handleChange("password")} id="exampleInputPassword1" />
                 </div>
                 
                 
-                <button type="submit" class="btn button">Submit</button>
+                <button type="submit" onClick={onSubmit} class="btn button">Submit</button>
+                {
+                    performRedirect()
+                }
             </form>
             </div>
 
