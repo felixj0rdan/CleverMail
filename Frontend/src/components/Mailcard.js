@@ -1,11 +1,11 @@
 import React from 'react'
 
-function History() {
+function Mailcard() {
     return (
         <div>
-            History
+            mailcard
         </div>
     )
 }
 
-export default History
+export default Mailcard

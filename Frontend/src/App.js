@@ -12,10 +12,11 @@ import {
 import Login from "./components/Login"
 import Drafts from "./components/Drafts"
 import Compose from "./components/Compose"
-import History from "./components/History"
+import Outbox from "./components/Outbox"
 import Inbox from "./components/Inbox";
 import Signup from "./components/Signup"
 import Email from "./components/Email"
+import Navbar from "./components/Navbar";
 
 
 
@@ -49,10 +50,11 @@ function App() {
         <Route path="/signup">
             <Signup />
           </Route>
-        <Route path="/history">
-            <History />
+        <Route path="/outbox">
+            <Outbox />
           </Route>
         <Route path="/inbox">
+            
             <Inbox />
           </Route>
           <Route path="/">

@@ -11,7 +11,7 @@ function Email() {
 
     
     return (
-<div style={{backgroundColor: "#fafafa"}} className="form-control form-control-sm w-50 mx-auto ">
+<div style={{backgroundColor: "#fafafa"}} className="form-control form-control-sm mx-auto ">
     <h2 className="text-center">Mail</h2>
     <div class="input-group mb-3 mx-auto w-75">
         <span class="input-group-text" id="basic-addon1">To</span>

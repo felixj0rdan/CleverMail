@@ -3,6 +3,8 @@ import "./Login.css"
 import img from "./Capture.PNG";
 import { signin,authenticate,isAuthenticated } from "../helper";
 import { Redirect ,Link} from 'react-router-dom';
+import Navbar from './Navbar';
+
 
 
 function Login() {
@@ -64,8 +66,10 @@ function Login() {
 
     return (
         <div>
-            <img className="logo" src={img} alt="logo" />
-            <hr/>
+
+            {/* <img className="logo" src={img} alt="logo" /> */}
+            
+            {/* <hr/> */}
             <div className="signup">
             <form className="form-control form-control-sm w-50 mx-auto"> 
             <h3 className="text-center mt-3 mb-4 fs-2 fw-bold">Login</h3>
