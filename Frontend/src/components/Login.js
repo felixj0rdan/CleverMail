@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import "./Login.css"
 import img from "./Capture.PNG";
-import { signin,authenticate,isAuthenticated } from "../helper/index";
+import { signin,authenticate,isAuthenticated } from "../helper";
 import { Redirect ,Link} from 'react-router-dom';
 
 

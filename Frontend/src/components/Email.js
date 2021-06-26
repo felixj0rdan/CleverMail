@@ -4,6 +4,12 @@ import Editor from "./Editor"
 
 
 function Email() {
+
+
+
+
+
+    
     return (
 <div style={{backgroundColor: "#fafafa"}} className="form-control form-control-sm w-50 mx-auto ">
     <h2 className="text-center">Mail</h2>
@@ -29,10 +35,10 @@ function Email() {
         <option value="4">Yearly Schedule</option>
     </select>
     </div>
-    <div class="mb-3 mx-auto w-75">
+    {/* <div class="mb-3 mx-auto w-75">
         <label for="exampleFormControlInput1" class="form-label">Email address</label>
         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
-    </div>
+    </div> */}
     <div class="mb-3 mx-auto w-75 ">
         <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
         <Editor />

@@ -1,5 +1,7 @@
 import React,{  useEffect } from "react"
 import './App.css';
+// import { useState, useEffect } from "react";
+// import {API} from './backend.js';
 import { API } from './backend';
 import {
   BrowserRouter as Router,
