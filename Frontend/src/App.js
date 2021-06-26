@@ -1,30 +1,64 @@
-import logo from './logo.svg';
+import React,{  useEffect } from "react"
 import './App.css';
-import { useState, useEffect } from "react";
-import {API} from './backend.js';
+// import { useState, useEffect } from "react";
+// import {API} from './backend.js';
+import { API } from './backend';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Login from "./components/Login"
+import Drafts from "./components/Drafts"
+import Compose from "./components/Compose"
+import History from "./components/History"
+import Home from "./components/Home"
+import Signup from "./components/Signup"
+import Email from "./components/Email"
+
+
 
 function App() {
+  
   useEffect(() => {
     fetch(API)
       .then(res => res.json())
       .then(data => console.log(data))
   }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Email />  */}
+      {/* <Sign /> */}
+      {/* <Login /> */}
+      <Router>
+        <Switch>
+        <Route path="/email">
+            <Email />
+          </Route>
+        <Route path="/login">
+            <Login />
+          </Route>
+        <Route path="/drafts">
+            <Drafts />
+          </Route>
+        <Route path="/compose">
+            <Compose />
+          </Route>
+        <Route path="/history">
+            <History />
+          </Route>
+        <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/">
+            <Signup />
+          </Route>
+        </Switch>
+      </Router>
+
+      
     </div>
   );
 }
