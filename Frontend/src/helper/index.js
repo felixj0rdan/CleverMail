@@ -68,3 +68,20 @@ export const isAuthenticated = () => {
       return false;
     }
   };
+
+
+export const sendmail = (mail) => {
+    return  fetch(`${API}api/sendMail`,{
+        method:"POST",
+        headers:{
+            Accept:"application/json",
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(mail)
+
+    })
+    .then(response => {
+        return response.json();
+    })
+    .catch(err => console.log(err))
+}

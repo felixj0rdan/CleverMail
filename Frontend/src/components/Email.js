@@ -1,6 +1,8 @@
 import React from 'react';
 import SendIcon from '@material-ui/icons/Send';
-import Editor from "./Editor"
+import Editor from "./Editor";
+import { sendmail } from '../helper';
+
 
 
 function Email() {

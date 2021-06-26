@@ -3,6 +3,8 @@ import {isAuthenticated, signout} from "../helper/index";
 import {Redirect,Link,useHistory} from "react-router-dom";
 import Navbar from './Navbar';
 import { API } from '../backend';
+import Maillist from './Maillist';
+
 
 
 function Inbox() {
@@ -26,15 +28,16 @@ function Inbox() {
         return(
             <div>
             <Navbar />
-               <h1>Inbox</h1>
-               {JSON.stringify(mails)}
-               {/* {
+            <div >
+               
+               {
                    mails.map(mail =>(
                        <div>
-                           {mail.to == user.email ? "hey": "no"}
+                           {mail.to == user.email ? (<Maillist mailItem={mail} name={mail.from} />): (console.log(" "))}
                        </div>
                    ))
-               } */}
+               }
+            </div>
                
             </div>
         )
