@@ -2,8 +2,9 @@ import React from 'react';
 import {isAuthenticated, signout} from "../helper/index";
 import {Redirect,Link,useHistory} from "react-router-dom";
 
-function Home() {
+function Inbox() {
     const {user} = isAuthenticated();
+    console.log(user?.email);
     // const SignOut = () => {
     //     signout();
     //     return(
@@ -31,4 +32,4 @@ function Home() {
     }
 }
 
-export default Home
+export default Inbox
