@@ -50,3 +50,15 @@
     max-width: 800px;
   }
 }
+
+.del {
+  float: right;
+}
+
+.cel {
+  justify-content: space-between;
+}
+
+.butt {
+  width: 55px;
+}

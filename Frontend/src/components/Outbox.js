@@ -5,7 +5,6 @@ import Maillist from './Maillist';
 import Navbar from './Navbar';
 
 
-
 function Outbox() {
     const [outmails,setOutmails] = useState([]);
     useEffect(()=>{
@@ -21,6 +20,7 @@ function Outbox() {
                 outmails.map((mail)=>(
                     <div>
                       { mail.from === user.email ? (<Maillist mailItem={mail} name={`to ${mail.to}`} />):(console.log())}
+                      
                     </div>
                 ))
             }
