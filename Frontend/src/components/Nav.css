@@ -21,7 +21,7 @@ body {
 }
 
 .topnav a:hover {
-  background-color: #ddd;
+  /* background-color: #ddd; */
   color: black;
 }
 
@@ -42,7 +42,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 20%;
+  width: 17%;
   background-color: whitesmoke;
   position: fixed;
   height: 100%;
@@ -64,4 +64,8 @@ li a.active {
 li a:hover:not(.active) {
   background-color: rgb(162, 168, 255);
   color: white;
+}
+
+.userName {
+  cursor: default;
 }

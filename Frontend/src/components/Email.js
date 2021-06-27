@@ -7,13 +7,6 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import "./Editor.css";
 import parse from 'html-react-parser';
 
-// import Context from '@ckeditor/ckeditor5-core/src/context';
-// import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
-// import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
-// import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
-// import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
-// import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
-
 function Email() {
     
     const [content, setContent] = useState("");
