@@ -8,8 +8,11 @@ import img from "./Capture.PNG"
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Email from "./Email";
-import { isAuthenticated, signout } from '../helper';
+import DraftsIcon from '@material-ui/icons/Drafts';
+import MailIcon from '@material-ui/icons/Mail';
 
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import { isAuthenticated, signout } from '../helper';
 
 
 
@@ -28,9 +31,9 @@ function Navbar() {
     return ( 
         <div>
           <div class="topnav">
-            <Link className={history.location.pathname === "/inbox" ? "active" : ""}  to="/inbox">Inbox</Link>
+            {/* <Link className={history.location.pathname === "/inbox" ? "active" : ""}  to="/inbox">Inbox</Link> */}
             {/* <Link onClick={() => setstate(true)} className={state?"active":null} to="#">Outbox</Link> */}
-            <Link className={history.location.pathname === "/outbox" ? "active":""} to="/outbox">Outbox</Link>
+            {/* <Link className={history.location.pathname === "/outbox" ? "active":""} to="/outbox">Outbox</Link> */}
             {/* <a href="#about"></a> */}
             {
               user ? (<Link>welcome {user.email}</Link>):(<Link>Please Login</Link>)
@@ -50,16 +53,17 @@ function Navbar() {
           <ul>
 
   <li><Link onClick={handleShow}>Compose &#10148;</Link></li>
-  <li><a href="#contact">Schedule Mail</a></li>
+  <li> <Link className={history.location.pathname === "/inbox" ? "active":""} to="/inbox">Inbox &nbsp;&nbsp;&nbsp;&nbsp;<MailIcon fontSize="small"  /></Link></li>
+  <li> <Link className={history.location.pathname === "/outbox" ? "active":""} to="/outbox">Outbox &nbsp;<DraftsIcon fontSize="small"  /></Link></li>
+  <li><a href="#contact">Schedule Mail &nbsp; <AccessTimeIcon fontSize="small"  /></a></li>
+
 
 </ul>
 
 <div>
-{/* <Button className="bttn" variant="info" onClick={handleShow}>
-        Compose
-      </Button> */}
 
-      <Modal show={show} onHide={handleClose}>
+
+      <Modal backdrop="static" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Mail</Modal.Title>
         </Modal.Header>
@@ -68,9 +72,7 @@ function Navbar() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
+          
         </Modal.Footer>
       </Modal>
 </div>

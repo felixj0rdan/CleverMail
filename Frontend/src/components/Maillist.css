@@ -1,5 +1,5 @@
 .main {
-  width: 80%;
+  width: 83%;
   float: right;
   /* border: 4px solid rgb(146, 143, 143); */
   border-radius: 7px;
@@ -11,21 +11,42 @@
   margin: 5px;
   padding-left: 15px;
   padding-top: 7px;
+  max-height: 110px;
+  border: 2px solid rgb(241, 241, 241);
 }
 .card:hover {
-  background-color: rgb(248, 248, 248);
+  background-color: rgb(161, 245, 145);
   cursor: pointer;
   border: 2px solid rgb(192, 192, 192);
 }
+
+.sub_name {
+  margin-top: 0;
+  margin-bottom: -1px;
+  margin-bottom: 2px;
+  font-size: 15px;
+}
+
 .ellipsis {
   text-overflow: ellipsis;
 
   /* Required for text-overflow to do anything */
   white-space: nowrap;
   overflow: hidden;
-  font-weight: 100;
+  /* font-weight: 200; */
 }
 .email_name {
   font-size: 20px;
   font-weight: 600;
+}
+
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out;
+  transform: translate(0, -50px);
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 800px;
+  }
 }
