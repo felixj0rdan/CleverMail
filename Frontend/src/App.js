@@ -17,6 +17,7 @@ import Inbox from "./components/Inbox";
 import Signup from "./components/Signup"
 import Email from "./components/Email"
 import Navbar from "./components/Navbar";
+import ScheduledMail from "./components/ScheduledMail";
 
 
 
@@ -52,6 +53,9 @@ function App() {
           </Route>
         <Route path="/outbox">
             <Outbox />
+          </Route>
+          <Route path="/scheduledmail">
+            <ScheduledMail />
           </Route>
         <Route path="/inbox">
             

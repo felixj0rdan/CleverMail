@@ -5,7 +5,7 @@ import Maillist from './Maillist';
 import Navbar from './Navbar';
 
 
-function Outbox() {
+function ScheduledMail() {
     const [outmails,setOutmails] = useState([]);
     useEffect(()=>{
         fetch(`${API}api/mails`)
@@ -19,7 +19,7 @@ function Outbox() {
             {
                 outmails.map((mail)=>(
                     <div>
-                      { mail.from === user.email && mail.sent === true ? (<Maillist mailItem={mail} name={`to ${mail.to}`} />):(console.log())}
+                      { mail.from === user.email && mail.sent === false || !mail.sent ? (<Maillist mailItem={mail} name={`to ${mail.to}`} />):(console.log())}
                       
                     </div>
                 ))
@@ -29,4 +29,4 @@ function Outbox() {
     )
 }
 
-export default Outbox
+export default ScheduledMail

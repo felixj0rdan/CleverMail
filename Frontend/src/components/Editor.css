@@ -1,4 +1,12 @@
-.ck.ck-editor__main>.ck-editor__editable {
-    background: var(--ck-color-base-background);
-    height: 200px;
+.ck.ck-editor__main > .ck-editor__editable {
+  background: var(--ck-color-base-background);
+  height: 200px;
+}
+
+.tim {
+  width: 100px;
+}
+
+.dat {
+  width: 200px;
 }

@@ -6,7 +6,6 @@ import { API } from '../backend';
 import Maillist from './Maillist';
 
 
-
 function Inbox() {
     const {user} = isAuthenticated();
     console.log(user?.email);
@@ -23,7 +22,7 @@ function Inbox() {
     //     )
     // }
     // const history = useHistory();
-
+    
     if(user){
         return(
             <div>
@@ -33,7 +32,7 @@ function Inbox() {
                {
                    mails.map(mail =>(
                        <div>
-                           {mail.to == user.email ? (<Maillist mailItem={mail} name={mail.from} />): (console.log(" "))}
+                           {mail.to == user.email || mail.cc == user.email ? (<Maillist mailItem={mail} name={mail.from} />): (console.log(" "))}
                        </div>
                    ))
                }

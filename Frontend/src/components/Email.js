@@ -6,6 +6,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import "./Editor.css";
 import parse from 'html-react-parser';
+import "./toggle.css";
 
 // import Context from '@ckeditor/ckeditor5-core/src/context';
 // import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
@@ -33,6 +34,7 @@ function Email() {
         subject: "no subject",
         scheduler: "",
         content: "",
+        sent:true
     });
 
     const {from,to,cc,subject,scheduler} = mail;
@@ -44,6 +46,11 @@ function Email() {
         })
     }
 
+    const [schedule, setSchedule] = useState(false);
+    const togg = () => {
+        // console.log(!schedule);
+        setSchedule(!schedule)
+    }
 
     const onSendMail = (e) => {
         e.preventDefault();
@@ -60,8 +67,13 @@ function Email() {
             cc:"",
             subject:"no subject",
             scheduler:"",
-            content:""
-        }))
+            content:"",
+            
+        })).then(
+            window.location.reload()
+        )
+
+        
            
           
 
@@ -96,7 +108,23 @@ function Email() {
         <option value="3">Monthly Schedule</option>
         <option value="4">Yearly Schedule</option>
     </select>
+    
     </div>
+    <div class="d-flex flex mx-auto w-75">
+        <p>Scheduled: </p>
+        <label class="switch ">
+            <input type="checkbox" onChange={() => togg()}/>
+            <span class="slider round"></span>
+        </label>
+    </div>
+    {
+        schedule?(<div className="mb-3 mx-auto w-75" >
+            <label className="form-label">Time:</label>
+            <input type="time" className="form-control tim" required/>
+            <label className="form-label">Date:</label>
+            <input type="date" className=" form-control dat" required/>          
+        </div>):(console.log())
+    }
     {/* <div class="mb-3 mx-auto w-75">
         <label for="exampleFormControlInput1" class="form-label">Email address</label>
         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
@@ -114,67 +142,3 @@ function Email() {
 
 export default Email;
 
-// import React,{useState} from 'react';
-// import SendIcon from '@material-ui/icons/Send';
-// import Editor from "./Editor";
-// import { sendmail } from '../helper';
-// import { CKEditor } from '@ckeditor/ckeditor5-react';
-// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-// import parse from 'html-react-parser';
-// import "./Editor.css";
-
-
-
-// function Email() {
-
-
-//     const [value, setValue] = useState("");
-
-//     const handleOnChange = (e, editor) => {
-//         const data = editor.getData()
-//         setValue(data)
-//     }
-
-
-    
-//     return (
-// <div style={{backgroundColor: "#fafafa"}} className="form-control form-control-sm mx-auto ">
-//     <h2 className="text-center">Mail</h2>
-//     <div class="input-group mb-3 mx-auto w-75">
-//         <span class="input-group-text" id="basic-addon1">To</span>
-//         <input type="text" class="form-control" placeholder="to" aria-label="Username" aria-describedby="basic-addon1" />
-//     </div>
-//     <div class="input-group  mb-3 mx-auto w-75">
-//         <span class="input-group-text" id="basic-addon1">Cc</span>
-//         <input type="text" class="form-control mx-" placeholder="cc" aria-label="Username" aria-describedby="basic-addon1" />
-//     </div>
-//     <div class="input-group mb-3 mx-auto w-75">
-//         <span class="input-group-text" id="basic-addon1">Subject</span>
-//         <input type="text" class="form-control" placeholder="subject" aria-label="Username" aria-describedby="basic-addon1" />
-//     </div>
-//     <div class="mx-auto w-75">   
-//     <label for="exampleFormControlInput1" class="form-label">Scheduler</label>
-//     <select class="form-select mb-4" aria-label="Default select example">
-//         <option selected>Open this select menu</option>
-//         <option value="1">Recurring Schedule</option>
-//         <option value="2">Weekly Schedule</option>
-//         <option value="3">Monthly Schedule</option>
-//         <option value="4">Yearly Schedule</option>
-//     </select>
-//     </div>
-//     {/* <div class="mb-3 mx-auto w-75">
-//         <label for="exampleFormControlInput1" class="form-label">Email address</label>
-//         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
-//     </div> */}
-//     <div class="mb-3 mx-auto w-75 ">
-//         <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-//         <CKEditor  editor={ClassicEditor} onChange={handleOnChange} />
-//     </div>
-//     <div class="text-center m-4 ">
-//         <button type="button" className="btn btn-info ">Send <SendIcon fontSize="small" /></button>
-//     </div>
-// </div>
-//     )
-// }
-
-// export default Email;

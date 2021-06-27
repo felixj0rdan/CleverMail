@@ -85,3 +85,35 @@ export const sendmail = (mail) => {
     })
     .catch(err => console.log(err))
 }
+
+export const delmail = (mailId, userId) => {
+    return  fetch(`${API}api/mails/${mailId}/${userId}`,{
+        method:"DELETE",
+        headers:{
+            Accept:"application/json",
+            "Content-Type":"application/json"
+        },
+        // body: JSON.stringify(mail)
+
+    })
+    .then(response => {
+        return response.json();
+    })
+    .catch(err => console.log(err))
+}
+
+export const updateMail = (mailId) => {
+    return  fetch(`${API}api/updatemail/${mailId}/`,{
+        method:"PUT",
+        headers:{
+            Accept:"application/json",
+            "Content-Type":"application/json"
+        },
+        // body: JSON.stringify(mail)
+
+    })
+    .then(response => {
+        return response.json();
+    })
+    .catch(err => console.log(err))
+}

@@ -21,7 +21,7 @@ body {
 }
 
 .topnav a:hover {
-  background-color: #ddd;
+  /* background-color: #ddd; */
   color: black;
 }
 
@@ -64,4 +64,8 @@ li a.active {
 li a:hover:not(.active) {
   background-color: rgb(162, 168, 255);
   color: white;
+}
+
+.userName {
+  cursor: default;
 }

@@ -34,6 +34,10 @@ const mailSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true
+    },
+    sent:{
+        type: Boolean,
+        required: false
     }
 })
 

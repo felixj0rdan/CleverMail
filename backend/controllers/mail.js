@@ -14,6 +14,7 @@ exports.sendMail = (req, res) => {
             to: mail.to,
             cc: mail.cc,
             scheduler: mail.scheduler,
+            subject: mail.subject,
             content: mail.content,
         });
     });
@@ -35,5 +36,46 @@ exports.getMails = (req, res) =>{
     //users = users.concat(user);
     //console.log(users); 
     res.json(mails);
+    })
+}
+
+exports.deleteMail = (req,res) =>{
+    let mail = req.mail;
+    mail.remove((err,deletedMail)=>{
+      if(err){
+        return res.status(400).json({
+          err:"Failed to delete mail."
+        })
+      }
+      res.json({
+        message:"Deleted successfully.",
+        deletedMail
+      })
+    })
+  }
+
+  exports.getMailById = (req, res, next, id) => {
+    Mail.findById(id)
+      .exec((err, mail) => {
+        if (err) {
+          return res.status(400).json({
+            error: "mail not found in DB"
+          });
+        }
+        req.mail = mail;
+        next();
+    });
+  }
+
+  exports.updateMail=(req,res)=>{
+    const mail = req.mail;
+    mail.sent = req.body.sent;
+    mail.save((err,updatedMail)=>{
+        if(err){
+            res.status(400).json({
+                error:"cant update mail"
+            });
+        }
+        return res.json(updatedMail);
     })
 }
