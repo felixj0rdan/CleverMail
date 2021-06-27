@@ -39,8 +39,9 @@ function Navbar() {
             {/* <Link onClick={() => setstate(true)} className={state?"active":null} to="#">Outbox</Link> */}
             {/* <Link className={history.location.pathname === "/outbox" ? "active":""} to="/outbox">Outbox</Link> */}
             {/* <a href="#about"></a> */}
+            <Link onClick={() => setstate(true)} className="userName"  to="#">C  L  E  V  E  R  -  M  A  I  L</Link>
             {
-              user ? (<Link className="userName">welcome {user.email}</Link>):(<Link>Please Login</Link>)
+              user ? (<Link className="userName1">Welcome {user.email}</Link>):(<Link>Please Login</Link>)
             }
             {
               user ? (
