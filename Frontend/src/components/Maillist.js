@@ -7,29 +7,20 @@ import { IconButton } from '@material-ui/core';
 // import { isAuthenticated } from '../../../backend/controllers/auth';
 import {delmail, isAuthenticated} from '../helper'
 function Maillist({ mailItem , name}) {
-console.log(JSON.stringify(mailItem));
+// console.log(JSON.stringify(mailItem));
 const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 const {user} = isAuthenticated();
+const [del, setDel] = useState(false)
 
-const getID = () => {
-  console.log(mailItem._id);
-  console.log(user._id);
-  const status = prompt("Are you sure you want to delete this mail??")
-  if(status === "yes")
-  {delmail(mailItem._id, user._id)
-  .then(window.location.reload())}
-  else
-  {console.log("canceled");}
+const yes = () => {
+  // console.log(mailItem._id);
+  // console.log(user._id);
+  delmail(mailItem._id, user._id)
+  .then(window.location.reload())
+  setDel(false)
 }
-
-// const dispContent = () => {
-//     let el = document.getElementById('cont')
-//     el?.insertAdjacentHTML('afterend', mailItem.content);
-//     // el.innerHTML = mailItem?.content
-//     // var cont = el.firstChild;
-// }
 
 return (
 <div className="main" >
@@ -54,9 +45,15 @@ return (
             <p dangerouslySetInnerHTML={{__html:mailItem.content }}></p>
         </Modal.Body>
         <Modal.Footer>
-        <Button variant="danger" className="butt" onClick={() => getID()}><DeleteOutlineSharpIcon style={{fontSize:"32px"}} className="del"/></Button>
+        <Button variant="outline-danger" className="butt" onClick={() => setDel(true)}><DeleteOutlineSharpIcon style={{fontSize:"32px"}} className="del"/></Button>
         </Modal.Footer>
-        <p>del message</p>
+        {
+          del?(
+            <div className="ques"><h5>Are you sure to delete this mail??</h5><div className="b"><button onClick={() => yes()} className="btn btn-danger">YES</button>
+            <button onClick={() => setDel(false)} className="btn btn-outline-dark">NO</button></div></div>
+          ):(console.log())
+        }
+        
       </Modal>
 </div>
 

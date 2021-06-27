@@ -62,3 +62,24 @@
 .butt {
   width: 55px;
 }
+
+.ques {
+  display: flex;
+  justify-content: center;
+  margin-top: -66px;
+  /* margin-bottom: 4px; */
+  padding: 12px;
+}
+
+.b {
+  margin-left: 20px;
+  /* margin-bottom: 5px; */
+  /* display: flex; */
+  /* justify-content: space-around; */
+}
+.btn {
+  margin: 2px;
+}
+h5 {
+  margin-top: 8px;
+}

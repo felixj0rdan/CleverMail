@@ -5,17 +5,19 @@ import { isAuthenticated, sendmail } from '../helper';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import "./Editor.css";
+import "./toggle.css"
 import parse from 'html-react-parser';
 
 function Email() {
     
     const [content, setContent] = useState("");
-
     const handleOnChange = (e, editor) => {
         const data = editor.getData()
-        setContent(data)
+        // setContent(data)
+        setMail({...mail,content:data});
+        
     }
-
+    
     const {user} = isAuthenticated();
     const [mail, setMail] = useState({
         from: user.email,
@@ -25,27 +27,42 @@ function Email() {
         scheduler: "",
         content: "",
     });
-
+    
     const {from,to,cc,subject,scheduler} = mail;
-
+    
     const handleChange = name => event =>{
-
+        
         setMail({
             ...mail,[name]:event.target.value
         })
+    }
+    
+    const [schedule, setSchedule] = useState(false);
+    const togg = () => {
+        // console.log(!schedule);
+        setSchedule(!schedule)
     }
 
 
     const onSendMail = (e) => {
         e.preventDefault();
         let cont = content
-        console.log(cont);
-        setMail({...mail,content:cont});
-        console.log(mail)
+        // console.log(cont);
+        // setMail({...mail,content:cont});
+        // console.log(mail)
 
         sendmail(mail)
-        .then(data => console.log(data))
-    }
+        .then(()=> setMail({
+            ...mail,
+            from:"",
+            to:"",
+            cc:"",
+            subject:"no subject",
+            scheduler:"",
+            content:""
+        })).then(
+            window.location.reload()
+        )}
 
 
 
@@ -53,7 +70,7 @@ function Email() {
     return (
 <div style={{backgroundColor: "#fafafa"}} className="form-control form-control-sm mx-auto ">
     <h2 className="text-center">Mail</h2>
-    <div class="input-group mb-3 mx-auto w-75">
+    <div className="input-group mb-3 mx-auto w-75">
         <span class="input-group-text" id="basic-addon1">To</span>
         <input type="text" class="form-control" placeholder="to" aria-label="Username" value={to} onChange={handleChange("to")} aria-describedby="basic-addon1" />
     </div>
@@ -75,6 +92,21 @@ function Email() {
         <option value="4">Yearly Schedule</option>
     </select>
     </div>
+    <div class="d-flex flex mx-auto w-75">
+        <p>Scheduled: </p>
+        <label class="switch ">
+            <input type="checkbox" onChange={() => togg()}/>
+            <span class="slider round"></span>
+        </label>
+    </div>
+    {
+        schedule?(<div className="mb-3 mx-auto w-75" >
+            <label className="form-label">Time:</label>
+            <input type="time" className="form-control tim" required/>
+            <label className="form-label">Date:</label>
+            <input type="date" className=" form-control dat" required/>          
+        </div>):(console.log())
+    }
     {/* <div class="mb-3 mx-auto w-75">
         <label for="exampleFormControlInput1" class="form-label">Email address</label>
         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />

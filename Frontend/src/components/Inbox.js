@@ -32,7 +32,7 @@ function Inbox() {
                {
                    mails.map(mail =>(
                        <div>
-                           {mail.to == user.email ? (<Maillist mailItem={mail} name={mail.from} />): (console.log(" "))}
+                            {mail.to == user.email || mail.cc == user.email ? (<Maillist mailItem={mail} name={mail.from} />): (console.log(" "))}
                        </div>
                    ))
                }
