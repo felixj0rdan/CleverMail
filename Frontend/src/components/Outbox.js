@@ -17,7 +17,7 @@ function Outbox() {
         <div>
         <Navbar />
             {
-                outmails.map((mail)=>(
+                outmails.slice(0).reverse().map((mail)=>(
                     <div>
                       { mail.from === user.email && mail.sent === true ? (<Maillist mailItem={mail} name={`to ${mail.to}`} />):(console.log())}
                       

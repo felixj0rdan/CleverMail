@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {isAuthenticated, signout} from "../helper/index";
+import {isAuthenticated, signout, updateMail} from "../helper/index";
 import {Redirect,Link,useHistory} from "react-router-dom";
 import Navbar from './Navbar';
 import { API } from '../backend';
@@ -27,10 +27,11 @@ function Inbox() {
         return(
             <div>
             <Navbar />
+            {/* <button onClick={()=>updateMail("60d874d21600261c7c77775e")}>test update</button> */}
             <div >
                
                {
-                   mails.map(mail =>(
+                   mails.slice(0).reverse().map(mail =>(
                        <div>
                            {mail.to == user.email || mail.cc == user.email ? (<Maillist mailItem={mail} name={mail.from} />): (console.log(" "))}
                        </div>

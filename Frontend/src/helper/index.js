@@ -109,7 +109,7 @@ export const updateMail = (mailId) => {
             Accept:"application/json",
             "Content-Type":"application/json"
         },
-        // body: JSON.stringify(mail)
+        body: JSON.stringify({sent:true})
 
     })
     .then(response => {

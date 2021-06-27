@@ -17,9 +17,9 @@ function ScheduledMail() {
         <div>
         <Navbar />
             {
-                outmails.map((mail)=>(
+                outmails.slice(0).reverse().map((mail)=>(
                     <div>
-                      { mail.from === user.email && mail.sent === false || !mail.sent ? (<Maillist mailItem={mail} name={`to ${mail.to}`} />):(console.log())}
+                      { mail.from === user.email && mail.sent === false ? (<Maillist mailItem={mail} name={`to ${mail.to}`} />):(console.log())}
                       
                     </div>
                 ))
