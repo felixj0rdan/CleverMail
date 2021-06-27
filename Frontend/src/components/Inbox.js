@@ -30,9 +30,9 @@ function Inbox() {
             <div >
                
                {
-                   mails.map(mail =>(
+                   mails.slice(0).reverse().map(mail =>(
                        <div>
-                            {mail.to == user.email || mail.cc == user.email ? (<Maillist mailItem={mail} name={mail.from} />): (console.log(" "))}
+                           {(mail.to == user.email || mail.cc == user.email)&& mail.sent === true ? (<Maillist mailItem={mail} name={mail.from} />): (console.log(" "))}
                        </div>
                    ))
                }

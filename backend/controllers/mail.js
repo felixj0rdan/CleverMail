@@ -66,3 +66,16 @@ exports.deleteMail = (req,res) =>{
         next();
     });
   }
+
+  exports.updateMail=(req,res)=>{
+    const mail = req.mail;
+    mail.sent = req.body.sent;
+    mail.save((err,updatedMail)=>{
+        if(err){
+            res.status(400).json({
+                error:"cant update mail"
+            });
+        }
+        return res.json(updatedMail);
+    })
+}

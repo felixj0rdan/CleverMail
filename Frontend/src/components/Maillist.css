@@ -83,3 +83,88 @@
 h5 {
   margin-top: 8px;
 }
+.main {
+  width: 83%;
+  float: right;
+  /* border: 4px solid rgb(146, 143, 143); */
+  border-radius: 7px;
+  /* margin-bottom: px; */
+}
+.card {
+  /* width: 75%;
+      float: right; */
+  margin: 5px;
+  padding-left: 15px;
+  padding-top: 7px;
+  max-height: 110px;
+  border: 2px solid rgb(241, 241, 241);
+}
+.card:hover {
+  background-color: rgb(161, 245, 145);
+  cursor: pointer;
+  border: 2px solid rgb(192, 192, 192);
+}
+
+.sub_name {
+  margin-top: 0;
+  margin-bottom: -1px;
+  margin-bottom: 2px;
+  font-size: 15px;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+  /* font-weight: 200; */
+}
+.email_name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out;
+  transform: translate(0, -50px);
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 800px;
+  }
+}
+
+.del {
+  float: right;
+}
+
+.cel {
+  justify-content: space-between;
+}
+
+.butt {
+  width: 55px;
+}
+
+.ques {
+  display: flex;
+  justify-content: center;
+  margin-top: -66px;
+  /* margin-bottom: 4px; */
+  padding: 12px;
+}
+
+.b {
+  margin-left: 20px;
+  /* margin-bottom: 5px; */
+  /* display: flex; */
+  /* justify-content: space-around; */
+}
+.btn {
+  margin: 2px;
+}
+h5 {
+  margin-top: 8px;
+}

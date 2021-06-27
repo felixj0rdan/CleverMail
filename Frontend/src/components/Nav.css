@@ -69,3 +69,37 @@ li a:hover:not(.active) {
 .userName {
   cursor: default;
 }
+
+.linkHover {
+  cursor: default;
+}
+.userName {
+  cursor: default;
+}
+
+.comp_btn {
+  color: #3f3f3f;
+  padding: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+  margin-left: 20%;
+  margin-right: 15%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 1px solid gray;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+.comp_btn:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.linkHover {
+  cursor: default;
+}
+
+.signout:hover {
+  background-color: rgb(138, 138, 138);
+  color: white;
+}

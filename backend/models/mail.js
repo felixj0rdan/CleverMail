@@ -25,15 +25,29 @@ const mailSchema = new mongoose.Schema({
         trim: true
     },
 
-    subject: {
+    subject:{
         type: String,
-        trim: true,
+        trim: true
     },
 
     content: {
         type: String,
         required: true,
         trim: true
+    },
+    sent:{
+        type: Boolean,
+        required: false
+    },
+
+    time:{
+        type: String,
+        required: false
+    },
+
+    date: {
+        type: String,
+        required: false,
     }
 })
 

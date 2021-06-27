@@ -101,3 +101,19 @@ export const delmail = (mailId, userId) => {
     })
     .catch(err => console.log(err))
 }
+
+export const updateMail = (mailId) => {
+    return  fetch(`${API}api/updatemail/${mailId}`,{
+        method:"PUT",
+        headers:{
+            Accept:"application/json",
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({sent: true})
+
+    })
+    .then(response => {
+        return response.json();
+    })
+    .catch(err => console.log(err))
+}
