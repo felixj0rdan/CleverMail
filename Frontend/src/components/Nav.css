@@ -5,7 +5,8 @@ body {
 
 .topnav {
   overflow: hidden;
-  background-color: rgb(235, 235, 235);
+  background-color: #63f68d;
+  border-bottom: 1px rgb(11, 109, 28) solid;
 }
 .topnav a {
   float: left;
@@ -43,7 +44,7 @@ ul {
   margin: 0;
   padding: 0;
   width: 17%;
-  background-color: whitesmoke;
+  background-color: #63f68d;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -105,6 +106,12 @@ li a:hover:not(.active) {
 }
 
 .signout:hover {
-  background-color: rgb(138, 138, 138);
+  background-color: #4784f5;
+  color: white;
+  border-radius: 5px;
+}
+
+.signout > div:hover {
+  background-color: #4784f5;
   color: white;
 }

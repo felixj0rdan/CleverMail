@@ -1,11 +1,14 @@
 import React,{useEffect,useState} from 'react'
 import { API } from '../backend';
 import { isAuthenticated } from '../helper';
+import Loading from './Loading';
 import Maillist from './Maillist';
 import Navbar from './Navbar';
 
 
 function Outbox() {
+    // console.log(API);
+
     const [outmails,setOutmails] = useState([]);
     useEffect(()=>{
         fetch(`${API}api/mails`)
@@ -13,7 +16,16 @@ function Outbox() {
          .then(data => setOutmails(data))
     },[])
     const {user} = isAuthenticated();
-    return (
+    if(outmails.length === 0)
+    {
+        return(<div>
+            <Navbar />
+                <Loading/>
+                    
+            </div>)
+    }
+    else
+    {return (
         <div>
         <Navbar />
             {
@@ -26,7 +38,7 @@ function Outbox() {
             }
                 
         </div>
-    )
+    )}
 }
 
 export default Outbox

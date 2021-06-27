@@ -24,11 +24,7 @@ import { updateMail } from "./helper";
 
 function App() {
   
-  useEffect(() => {
-    fetch(API)
-      .then(res => res.json())
-      .then(data => console.log(data))
-  }, [])
+  
 
   const [allmails,setAllmails] = useState([]);
   useEffect(()=>{

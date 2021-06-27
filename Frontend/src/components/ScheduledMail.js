@@ -1,11 +1,13 @@
 import React,{useEffect,useState} from 'react'
 import { API } from '../backend';
 import { isAuthenticated } from '../helper';
+import Loading from './Loading';
 import Maillist from './Maillist';
 import Navbar from './Navbar';
 
 
 function ScheduledMail() {
+    
     const [outmails,setOutmails] = useState([]);
     useEffect(()=>{
         fetch(`${API}api/mails`)
@@ -13,7 +15,17 @@ function ScheduledMail() {
          .then(data => setOutmails(data))
     },[])
     const {user} = isAuthenticated();
-    return (
+    if(outmails.length === 0){
+        return (
+            <div>
+        <Navbar />
+            <Loading/>
+                
+        </div>
+        )
+    }
+    else
+    {return (
         <div>
         <Navbar />
             {
@@ -26,7 +38,7 @@ function ScheduledMail() {
             }
                 
         </div>
-    )
+    )}
 }
 
 export default ScheduledMail

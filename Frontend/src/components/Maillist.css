@@ -100,7 +100,7 @@ h5 {
   border: 2px solid rgb(241, 241, 241);
 }
 .card:hover {
-  background-color: rgb(161, 245, 145);
+  background-color: rgb(192, 234, 245);
   cursor: pointer;
   border: 2px solid rgb(192, 192, 192);
 }
