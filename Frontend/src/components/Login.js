@@ -66,7 +66,7 @@ function Login() {
 
     if(!user){
         return (
-            <div>
+            <div >
     
                 {/* <img className="logo" src={img} alt="logo" /> */}
                 

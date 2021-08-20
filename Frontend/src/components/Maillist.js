@@ -21,12 +21,18 @@ const yes = () => {
   // console.log(mailItem._id);
   // console.log(user._id);
   delmail(mailItem._id, user._id)
+<<<<<<< HEAD
   // window.setTimeout(()=>{
   //     window.location.reload()
   // },3000)
   // setReload(!reload);
   setShow(false)
+=======
+  // .then(console.log("deleted"))
+>>>>>>> 4b31654514e114080653d75b7151143c149b2fad
   setDel(false)
+  // await window.location.reload()
+  window.setTimeout(() => window.location.reload(), 3500)
 }
 
 return (
@@ -74,4 +80,9 @@ return (
 )
 }
 
+<<<<<<< HEAD
 export default Maillist
+=======
+export default Maillist
+
+>>>>>>> 4b31654514e114080653d75b7151143c149b2fad

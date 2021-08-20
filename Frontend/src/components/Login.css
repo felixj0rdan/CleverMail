@@ -1,23 +1,29 @@
+body {
+  /* background-image: url("https://static.vecteezy.com/system/resources/previews/002/276/716/non_2x/abstract-geometric-background-in-flat-design-free-vector.jpg?"); */
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .logo {
-    width: 400px;
-    margin-left: 30px;
+  width: 400px;
+  margin-left: 30px;
 }
 
 .signup {
-    margin-top: 80px;
-
+  margin-top: 80px;
 }
 
 .button {
-    background-color: rgb(65, 65, 250);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-    color: white;
+  background-color: rgb(65, 65, 250);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  color: white;
 }
 
 .button:hover {
-    background-color: rgb(43, 43, 209);
-    color: bisque;
+  background-color: rgb(43, 43, 209);
+  color: bisque;
 }

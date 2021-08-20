@@ -4,9 +4,11 @@ import {Redirect,Link,useHistory} from "react-router-dom";
 import Navbar from './Navbar';
 import { API } from '../backend';
 import Maillist from './Maillist';
+import Loading from './Loading';
 
 
 function Inbox() {
+    
     const {user} = isAuthenticated();
     const [reload,setReload] = useState(false);
     console.log(user?.email);
@@ -23,8 +25,19 @@ function Inbox() {
     //     )
     // }
     // const history = useHistory();
-    
-    if(user){
+    if(mails.length === 0)
+    {
+        return(<div>
+            <Navbar />
+            <div >
+               
+               <Loading/>
+            </div>
+               
+            </div>)
+    }
+    else
+    {if(user){
         return(
             <div>
             <Navbar />
@@ -49,7 +62,7 @@ function Inbox() {
                 Not logged in
             </div>
         )
-    }
+    }}
 }
 
 export default Inbox

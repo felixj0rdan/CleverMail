@@ -18,7 +18,7 @@ import "./toggle.css";
 
 function Email() {
     const dat = new Date();
-    console.log(dat.getUTCDate());
+    // console.log(dat.getUTCDate());
     const [content, setContent] = useState("");
     const handleOnChange = (e, editor) => {
         const data = editor.getData()
@@ -78,9 +78,8 @@ function Email() {
             date:"",
             time:"",
             
-        })).then(
-            window.location.reload()
-        )
+        }))
+        window.setTimeout(() => window.location.reload(), 2500)
     }
 
 
