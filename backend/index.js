@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const mailRoutes = require("./routes/mail");
+const imageRoutes = require("./routes/image");
 
 mongoose.connect(process.env.DB, {
     useNewUrlParser: true,
@@ -27,6 +28,7 @@ app.use(cors());
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 app.use('/api', mailRoutes);
+app.use("/api",imageRoutes);
 
 const port = process.env.PORT || 8000;
 app.get("/", (req, res) => {

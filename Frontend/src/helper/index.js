@@ -103,13 +103,13 @@ export const delmail = (mailId, userId) => {
 }
 
 export const updateMail = (mailId) => {
-    return  fetch(`${API}api/updatemail/${mailId}/`,{
+    return  fetch(`${API}api/updatemail/${mailId}`,{
         method:"PUT",
         headers:{
             Accept:"application/json",
             "Content-Type":"application/json"
         },
-        body: JSON.stringify({sent:true})
+        body: JSON.stringify({sent: true})
 
     })
     .then(response => {
@@ -117,3 +117,32 @@ export const updateMail = (mailId) => {
     })
     .catch(err => console.log(err))
 }
+
+export const createImage = (userId,token,image) => {
+    return fetch(`http://localhost:8000/api/image/create/${userId}`,{
+        method:"POST",
+        headers:{
+            Accept:"application/json",
+            
+            Authorization: `Bearer ${token}`
+        },
+        body: image
+    })
+     .then(response => {
+         return response.json();
+     })
+     .catch(err => {
+         console.log(err)
+     })
+}
+
+export const getAllImages = () => {
+    return fetch(`http://localhost:8000/api/image/getimages`,{method:"GET"})
+    .then(response => {
+        return response.json();
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+

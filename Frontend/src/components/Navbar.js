@@ -12,6 +12,8 @@ import DraftsIcon from '@material-ui/icons/Drafts';
 import Email from "./Email";
 
 import MailIcon from '@material-ui/icons/Mail';
+import SendIcon from '@material-ui/icons/Send';
+
 
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import { isAuthenticated, signout } from '../helper';
@@ -29,7 +31,7 @@ function Navbar() {
   const [state, setstate] = useState("false")
 
 
-
+  
     return ( 
         <div>
           <div class="topnav">
@@ -37,8 +39,9 @@ function Navbar() {
             {/* <Link onClick={() => setstate(true)} className={state?"active":null} to="#">Outbox</Link> */}
             {/* <Link className={history.location.pathname === "/outbox" ? "active":""} to="/outbox">Outbox</Link> */}
             {/* <a href="#about"></a> */}
+            <Link onClick={() => setstate(true)} className="userName"  to="#">C  L  E  V  E  R  -  M  A  I  L</Link>
             {
-              user ? (<Link className="userName">welcome {user.email}</Link>):(<Link>Please Login</Link>)
+              user ? (<Link className="userName1">Welcome {user.email}</Link>):(<Link>Please Login</Link>)
             }
             {
               user ? (
@@ -57,10 +60,10 @@ function Navbar() {
 
           <ul>
 
-  <li><Link onClick={handleShow}>Compose &#10148;</Link></li>
-  <li> <Link className={history.location.pathname === "/inbox" ? "active":""} to="/inbox">Inbox &nbsp;&nbsp;&nbsp;&nbsp;<MailIcon fontSize="small"  /></Link></li>
-  <li> <Link className={history.location.pathname === "/outbox" ? "active":""} to="/outbox">Outbox &nbsp;<DraftsIcon fontSize="small"  /></Link></li>
-  <li><Link className={history.location.pathname === "/scheduledmail" ? "active":""} to="/scheduledmail">Scheduled Mails <AccessTimeIcon fontSize="small"  /> </Link></li>
+<Link className="linkHover"><button onClick={handleShow} className="comp_btn"><SendIcon style={{ fontSize: 22 }} />&nbsp;Compose</button> </Link>
+  <li> <Link className={history.location.pathname === "/inbox" ? "active":""} to="/inbox"><MailIcon style={{ fontSize: 22 }} />&nbsp; Inbox</Link></li>
+  <li> <Link className={history.location.pathname === "/outbox" ? "active":""} to="/outbox"><DraftsIcon style={{ fontSize: 22 }}  />&nbsp;Outbox </Link></li>
+  <li><Link className={history.location.pathname === "/scheduledmail" ? "active":""} to="/scheduledmail"><AccessTimeIcon fontSize="small"/>&nbsp;Scheduled Mails</Link></li>
 
 
 </ul>
@@ -69,8 +72,8 @@ function Navbar() {
 
 
       <Modal backdrop="static" show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Mail</Modal.Title>
+        <Modal.Header>
+          {/* <Modal.Title>Mail</Modal.Title> */}
         </Modal.Header>
         <Modal.Body>
           <Email />

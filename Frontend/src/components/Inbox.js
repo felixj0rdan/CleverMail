@@ -8,13 +8,14 @@ import Maillist from './Maillist';
 
 function Inbox() {
     const {user} = isAuthenticated();
+    const [reload,setReload] = useState(false);
     console.log(user?.email);
     const [mails,setMails] = useState([]);
     useEffect(()=>{
         fetch(`${API}api/mails`)
          .then(res => res.json())
          .then(data => setMails(data))
-    },[])
+    },[reload])
     // const SignOut = () => {
     //     signout();
     //     return(
@@ -33,7 +34,7 @@ function Inbox() {
                {
                    mails.slice(0).reverse().map(mail =>(
                        <div>
-                           {mail.to == user.email || mail.cc == user.email ? (<Maillist mailItem={mail} name={mail.from} />): (console.log(" "))}
+                           {(mail.to == user.email || mail.cc == user.email)&& mail.sent === true ? (<Maillist mailItem={mail} name={mail.from} reload={reload} setReload={setReload} />): (console.log(" "))}
                        </div>
                    ))
                }

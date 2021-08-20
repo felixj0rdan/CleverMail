@@ -38,6 +38,20 @@ const mailSchema = new mongoose.Schema({
     sent:{
         type: Boolean,
         required: false
+    },
+
+    time:{
+        type: String,
+        required: false
+    },
+
+    date: {
+        type: String,
+        required: false,
+    },
+    photo:{
+        type: Buffer,
+        contentType: String
     }
 })
 

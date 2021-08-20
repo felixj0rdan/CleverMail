@@ -8,7 +8,7 @@ import { IconButton } from '@material-ui/core';
 import {delmail, isAuthenticated} from '../helper'
 
 
-function Maillist({ mailItem , name}) {
+function Maillist({ mailItem , name,setReload = f => f,reload=undefined}) {
 // console.log(JSON.stringify(mailItem));
 const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
@@ -16,11 +16,16 @@ const handleShow = () => setShow(true);
 const {user} = isAuthenticated();
 const [del, setDel] = useState(false)
 
+
 const yes = () => {
   // console.log(mailItem._id);
   // console.log(user._id);
   delmail(mailItem._id, user._id)
-  .then(window.location.reload())
+  // window.setTimeout(()=>{
+  //     window.location.reload()
+  // },3000)
+  // setReload(!reload);
+  setShow(false)
   setDel(false)
 }
 
@@ -51,7 +56,11 @@ return (
         </Modal.Footer>
         {
           del?(
-            <div className="ques"><h5>Are you sure to delete this mail??</h5><div className="b"><button onClick={() => yes()} className="btn btn-danger">YES</button>
+            <div className="ques"><h5>Are you sure to delete this mail??</h5><div className="b"><button onClick={() => {
+              yes();
+              setShow(false);
+              setReload(!reload)
+            }} className="btn btn-danger">YES</button>
             <button onClick={() => setDel(false)} className="btn btn-outline-dark">NO</button></div></div>
           ):(console.log())
         }
